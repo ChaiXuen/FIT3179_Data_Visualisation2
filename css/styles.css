@@ -8,6 +8,16 @@
 	justify-content: center;
     align-items: center;
 }
+#budget_gross {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+#runtime_score {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
 h1 {
 	font-family: fantasy;
 	font-size: 80px;
