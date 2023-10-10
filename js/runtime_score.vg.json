@@ -1,0 +1,59 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 500,
+    "data": {"url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/data/movies_cleaned.csv"},
+    "transform": [{
+      "filter": {"and": [
+        {"field": "runtime", "valid": true},
+        {"field": "score", "valid": true}
+      ]}
+    }],
+    "layer": [
+      {
+        "mark": "rect",
+        "encoding": {
+          "x": {
+            "bin": {"maxbins":60},
+            "field": "runtime",
+            "type": "quantitative"
+          },
+          "y": {
+            "bin": {"maxbins": 40},
+            "field": "score",
+            "type": "quantitative"
+          },
+          "color": {
+            "aggregate": "count",
+            "type": "quantitative",
+            "scale": {
+              "type": "threshold",
+              "domain": [50, 100, 150, 200],
+              "range": ["#FFBE0F", "#FF5403", "#D82600", "#8C0000", "#000000"]
+            }
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "baseline": "top",
+          "align": "left",
+          "dx": 1,
+          "dy": 100,
+          "fontSize": 12,
+          "fontWeight": "bold"
+        },
+        "encoding": {
+          "text": {
+            "value": "The shorter movies are more prevalent in our dataset, spanning a wide range of scores."
+          }
+        }
+      }
+    ],
+    "config": {
+      "view": {
+        "stroke": "transparent"
+      }
+    }
+  }
