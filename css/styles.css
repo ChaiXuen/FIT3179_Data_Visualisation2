@@ -38,6 +38,6 @@ p {
 }
 
 .right-division {
-	float: left;
+	float: left; /* ***** Can try change to right **** */
 	width: 50%; /* Adjust the width as needed */
 }
