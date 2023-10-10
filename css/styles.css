@@ -1,0 +1,15 @@
+#movie_map {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+#stacked_line {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+h1 {
+	font-family: fantasy;
+	font-size: 50px;
+	text-align: center;
+}
