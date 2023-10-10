@@ -41,7 +41,7 @@
           "align": "left",
           "dx": 1,
           "dy": 100,
-          "fontSize": 12,
+          "fontSize": 13,
           "fontWeight": "bold"
         },
         "encoding": {
