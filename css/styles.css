@@ -1,4 +1,4 @@
-#movie_map {
+/* #movie_map {
 	display: flex;
 	justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@
 	display: flex;
 	justify-content: center;
     align-items: center;
-}
+} */
 h1 {
 	font-family: fantasy;
 	font-size: 80px;
