@@ -1,6 +1,5 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Genre Distribution Over Time",
     "data": {
         "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Homework_W9/main/data/movies_cleaned.csv"
     },
