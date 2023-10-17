@@ -57,7 +57,7 @@
         },
         "opacity": {
           "condition": {"selection": "genre_highlight", "value": 0.9},
-          "value": 0.2
+          "value": 0.1
         },
         "tooltip": [
           {"field": "year", "type": "temporal", "title": "Year", "timeUnit": "year"},
