@@ -1,136 +1,174 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 400,
-    "padding": {"left": 10},
-    "params": [
-      {
-        "name": "zoom_level",
-        "value": 150,
-        "bind": {
-          "input": "range",
-          "min": 150,
-          "max": 300,
-          "step": 50,
-          "name": "Zoom: "
-        }
-      },
-      {
-        "name": "center_to",
-        "value": [0, 0],
-        "bind": {
-          "input": "select",
-          "options": [
-            [0, 0],
-            [81, 144],
-            [-60, -22],
-            [9, 1],
-            [130, -30],
-            [-90, 120]
-          ],
-          "labels": [
-            "Whole map",
-            "Asia & Europe",
-            "South America",
-            "Africa",
-            "Asia Pacific",
-            "North America"
-          ],
-          "name": "Map Centre: "
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 900,
+  "height": 500,
+  "params": [
+    {
+      "name": "zoom_level",
+      "value": 140,
+      "bind": {
+        "input": "range",
+        "min": 140,
+        "max": 340,
+        "step": 20,
+        "name": "Zoom: "
       }
-    ],
-    "projection": { 
-      "type": "equalEarth",
-      "scale": {"expr": "zoom_level"},
-      "rotate": [-20, 0, 0],
-      "center": {"expr": "center_to"} 
+    },
+    {
+      "name": "center_to",
+      "value": [0, 0],
+      "bind": {
+        "input": "select",
+        "options": [
+          [0, 0],
+          [68, 49],
+          [23, -2],
+          [134, -24],
+          [44, 58],
+          [-101, 60],
+          [-64, -33]
+        ],
+        "labels": [
+          "Whole map",
+          "Asia",
+          "Africa",
+          "Australia",
+          "Europe",
+          "North America",
+          "South America"
+        ],
+        "name": "Map Centre: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "equirectangular",
+    "scale": {"expr": "zoom_level"},
+    "rotate": [-20, 0, 0],
+    "center": {"expr": "center_to"}
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/js/ne_110m.json",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
       },
-    "layer" : [
+      "mark": {"type": "geoshape", "fill": "lightgray"},
+      "encoding": {
+        "tooltip": [
+          {"field": "properties.NAME", "type": "nominal", "title": "Country"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+        "format": {"type": "topojson", "feature": "oceans"}
+      },
+      "mark": {"type": "geoshape", "fill": "skyblue", "opacity": 0.2}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/js/ne_110m.json",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+      },
+      "transform": [
         {
+          "lookup": "properties.NAME",
+          "from": {
             "data": {
-                "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/js/ne_110m.json",
-                "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-              },
-            "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
-            "encoding": {
-                "tooltip": [
-                    {"field": "properties.NAME", "type": "nominal", "title": "Country"}
-                    
-                ]
-            }
-        },
-        {
-            "data": {
-              "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
-              "format": {"type": "topojson", "feature": "oceans"}
+              "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/data/movies_cleaned.csv"
             },
-            "mark": {"type": "geoshape", "fill": "skyblue", "opacity": 0.25}
-        },
-        {
-            "data": {
-                "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/js/ne_110m.json",
-                "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-                },
-            "transform": [
-                {
-                "lookup": "properties.NAME",
-                "from": {
-                    "data": {
-                        "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Homework_W9/main/data/movies_cleaned.csv"
-                    },
-                    "key": "country",
-                    "fields": ["most_popular_genre"]
-                    }
-                }
-                
-            ],
-            "mark": {"type": "geoshape"},
-            "encoding": {
-                "color": {
-                    "field": "most_popular_genre",
-                    "type": "nominal",
-                    "scale": {
-                        "domain": ["Adventure", "Horror", "Crime", "Action", "Drama", "Comedy", "Biography", "Animation"],
-                        "range": ["#0C354C", "#D42A2A", "#50260D", "#7D3C60", "#F333AC", "#F0E442", "#56B4E9", "#009E73"]
-                        },
-                    "legend": {"title": "Movie Genre"}
-                },
-                "tooltip": [
-                    {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-                    {"field": "most_popular_genre", "type": "nominal", "title" : "Most Popular Genre"}
-                ]
-            }
-        },
-        {
-            "data": {
-                "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/js/ne_110m.json",
-                "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
-                },
-            "mark": {"type": "geoshape", "fill": null, "stroke": "lightgrey", "opacity": 0.45, "width": 4}
-            
-        },
-        {
-            "data": {
-              "values": [
-                {
-                  "Annotation": "North East countries' most popular genre is Drama"
-                }
-              ]
-            },
-            "mark": {
-              "type": "text",
-              "dx": 550,
-              "dy": 40,
-              "fontWeight": "bold",
-              "fontSize": 12,
-              "fill": "black"
-            },
-            "encoding": {
-              "text": {"field": "Annotation"},
-              "longitude": {"field": "Country", "type": "quantitative"},
-              "latitude": {"field": "Country", "type": "quantitative"}
-            }
+            "key": "country",
+            "fields": ["most_popular_genre"]
+          }
         }
-    ]
+      ],
+      "selection": {
+        "continent_highlight": {
+          "type": "multi",
+          "fields": ["most_popular_genre"],
+          "bind": "legend"
+        }
+      },
+      "mark": {"type": "geoshape"},
+      "encoding": {
+        "color": {
+          "field": "most_popular_genre",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Adventure",
+              "Horror",
+              "Crime",
+              "Action",
+              "Drama",
+              "Comedy",
+              "Biography",
+              "Animation"
+            ],
+            "range": [
+              "#0C354C",
+              "#D42A2A",
+              "#50260D",
+              "#7D3C60",
+              "#F333AC",
+              "#F0E442",
+              "#56B4E9",
+              "#009E73"
+            ]
+          },
+          "legend": {"title": "Movie Genre Filter","titleFontSize": 12, "labelFontSize": 12, "symbolSize": 150}
+        },
+        "opacity": {
+          "condition": {"selection": "continent_highlight", "value": 0.9},
+          "value": 0.2
+        },
+        "stroke": {
+          "condition": {"selection": "continent_highlight", "value": "black"},
+          "value": "white"
+        },
+        "tooltip": [
+          {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+          {
+            "field": "most_popular_genre",
+            "type": "nominal",
+            "title": "Most Popular Genre"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/js/ne_110m.json",
+        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": null,
+        "stroke": "grey",
+        "opacity": 0.45
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"Annotation": "North East countries' most popular genre is Drama"}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dx": 550,
+        "dy": 40,
+        "fontWeight": "bold",
+        "fontSize": 12,
+        "fill": "black"
+      },
+      "encoding": {
+        "text": {"field": "Annotation"},
+        "longitude": {"field": "Country", "type": "quantitative"},
+        "latitude": {"field": "Country", "type": "quantitative"}
+      }
+    }
+  ]
 }
