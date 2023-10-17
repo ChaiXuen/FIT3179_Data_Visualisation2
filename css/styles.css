@@ -1,14 +1,17 @@
 h1 {
 	font-family: fantasy;
 	font-size: 80px;
+	color: black;
 	text-align: center;
+	padding-top: 25px;
+	padding-bottom: 25px;
 }
 h2 {
 	/* font-family:'Trebuchet MS'; */
 	font-family: Cambria;
 	font-size: 35px;
 	text-align: center;
-	background-color: lightgray;
+	background-color: rgba(35, 35, 92, 0.355);
 	color: black;
 	padding: 20px 20px;
 	margin-left: 40px;
@@ -22,6 +25,26 @@ p {
 	margin-left: 50px;
 	margin-right: 50px;
 }
+.main_title {
+	background-size: cover;
+	justify-content: center;
+	align-items: center;
+	position: relative; /* Add position relative for proper z-index */
+}
+  
+.main_title::before {
+	content: ''; /* Add content to the pseudo-element */
+	background-image: url("movie_background.jpg"); /* Set the background image here */
+	background-size:cover;
+	opacity: 0.35; /* Adjust the opacity as needed */
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1; /* Ensure the pseudo-element is behind the content */
+}
+
 /* Add a class for the main container */
 .main-container {
 	display: flex;
