@@ -1,69 +1,75 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 500,
-    "data": {
-      "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/data/movies_cleaned.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 900,
+  "height": 500,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/data/movies_cleaned.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.budget / 10000",
+      "as": "Budget per 10,000 population"
     },
-    "transform": [
-      {
-        "calculate": "datum.budget / 10000",
-        "as": "Budget per 10,000 population"
+    {
+      "calculate": "datum.gross / 10000",
+      "as": "Gross Earnings per 10,000 population"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "filled": true
       },
-      {
-        "calculate": "datum.gross / 10000",
-        "as": "Gross Earnings per 10,000 population"
-      }
-    ],
-    "layer": [
-      {
-        "mark": {
-          "type": "point",
-          "filled": true
+      "encoding": {
+        "x": {
+          "field": "Budget per 10,000 population",
+          "type": "quantitative",
+          "axis": {"title": "Budget per 10,000 population",
+          "grid": false,
+          "labelFontSize":15, 
+          "titleFontSize":15},
+          "scale": {"domain": [0, 36000]}
         },
-        "encoding": {
-          "x": {
-            "field": "Budget per 10,000 population",
-            "type": "quantitative",
-            "title": "Budget per 10,000 population",
-            "scale": {"domain": [0, 36000]}
-          },
-          "y": {
-            "field": "Gross Earnings per 10,000 population",
-            "type": "quantitative",
-            "title": "Gross Earnings per 10,000 population"
-          },
-          "tooltip": [
-            {"field": "name", "type": "nominal", "title": "Movie Name"},
-            {"field": "year", "type": "temporal", "title": "Year"},
-            {"field": "Gross Earnings per 10,000 population", "type": "quantitative", "title": "Gross Earnings per 10,000 population"},
-            {"field": "Budget per 10,000 population", "type": "quantitative", "title": "Budget per 10,000 population"}
-          ]
-        }
+        "y": {
+          "field": "Gross Earnings per 10,000 population",
+          "type": "quantitative",
+          "axis": {"title": "Gross Earnings per 10,000 population",
+          "grid": false,
+          "labelFontSize":15, 
+          "titleFontSize":15}
+        },
+        "tooltip": [
+          {"field": "name", "type": "nominal", "title": "Movie Name"},
+          {"field": "year", "type": "temporal", "title": "Year"},
+          {"field": "Gross Earnings per 10,000 population", "type": "quantitative", "title": "Gross Earnings per 10,000 population"},
+          {"field": "Budget per 10,000 population", "type": "quantitative", "title": "Budget per 10,000 population"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "red"
       },
-      {
-        "mark": {
-          "type": "line",
-          "color": "red"
+      "transform": [
+        {
+          "regression": "Gross Earnings per 10,000 population",
+          "on": "Budget per 10,000 population"
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "Budget per 10,000 population",
+          "type": "quantitative",
+          "scale": {"domain": [0, 36000]}
         },
-        "transform": [
-          {
-            "regression": "Gross Earnings per 10,000 population",
-            "on": "Budget per 10,000 population"
-          }
-        ],
-        "encoding": {
-          "x": {
-            "field": "Budget per 10,000 population",
-            "type": "quantitative",
-            "scale": {"domain": [0, 36000]}
-          },
-          "y": {
-            "field": "Gross Earnings per 10,000 population",
-            "type": "quantitative",
-            "scale": {"domain": [0, 300000]}
-          }
+        "y": {
+          "field": "Gross Earnings per 10,000 population",
+          "type": "quantitative",
+          "scale": {"domain": [0, 300000]}
         }
       }
-    ]
-  }
+    }
+  ]
+}
