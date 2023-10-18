@@ -1,6 +1,6 @@
 h1 {
-	font-family: fantasy;
-	font-size: 80px;
+	font-family: 'Lobster'; /* Sans Serif typeface */
+	font-size: 90px;
 	color: black;
 	text-align: center;
 	margin-top: 0px;
@@ -8,10 +8,10 @@ h1 {
 	padding-bottom: 25px;
 }
 h2 {
-	font-family: Cambria;
-	font-size: 35px;
+	font-family: 'Young Serif'; /*  Serif typeface */
+	font-size: 40px;
 	text-align: center;
-	background-color: rgba(29, 29, 99, 0.207);
+	background-color: rgba(18, 18, 79, 0.273);
 	color: black;
 	padding: 20px 20px;
 	margin-left: 40px;
@@ -22,13 +22,12 @@ h2 {
 p {
 	font-family:'Trebuchet MS';
 	font-size: 20px;
-	/* padding-left: 40px;
-	padding-right: 40px; */
-	margin-left: 50px;
-	margin-right: 50px;
+	margin-left: 20px;
+	margin-right: 20px;
 	text-align: center;
 }
-img{ /*icon image*/
+/*icon image*/
+img{ 
 	height: 50px;
 	width: auto;
 	align-items:baseline;
@@ -64,7 +63,7 @@ img{ /*icon image*/
 }
 
 /* Add classes for left and right divisions */
-	.left-division {
+.left-division {
 	float: left;
 	width: 50%; /* Adjust the width as needed */
 }
