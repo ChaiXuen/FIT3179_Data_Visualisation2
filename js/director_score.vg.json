@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Top Directors by Average Score",
+  "data": {"url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/data/movies_cleaned.csv"},
+  "mark": "bar",
+  "transform": [
+    {
+      "aggregate": [{"op": "mean", "field": "score", "as": "aggregate_score"}],
+      "groupby": ["director"]
+    },
+    {
+      "window": [{"op": "row_number", "as": "rank"}],
+      "sort": [{ "field": "aggregate_score", "order": "descending" }]
+    },
+    {
+      "calculate": "datum.rank < 10 ? datum.director : 'All Others'", "as": "ranked_director"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "aggregate": "mean",
+      "field": "aggregate_score",
+      "type": "quantitative",
+      "axis":{
+        "title":"Average Score","labelAlign":"center", "labelFontSize":12, "titleFontSize":12
+      }
+    },
+    "y": {
+      "sort": {"op": "mean", "field": "aggregate_score", "order": "descending"},
+      "field": "ranked_director",
+      "type": "ordinal",
+      "axis":{
+        "title":"Director","labelAlign":"right", "labelFontSize":12, "titleFontSize":12
+      }
+    },
+    "tooltip": [
+      {"field": "ranked_director", "type": "nominal", "title" : "Director"},
+      {"field": "aggregate_score", "type": "quantitative", "title" : "Movies Average Score"}
+    ]
+  }
+}
