@@ -45,7 +45,7 @@ img{
 	content: '';
 	background-image: url("movie_background.jpg");
 	background-size:cover;
-	opacity: 0.35;
+	opacity: 0.40;
 	position: absolute;
 	top: 0;
 	right: 0;
