@@ -60,13 +60,33 @@
 
   <!-- Idiom 4 -->
   <!-- Sub Title -->
-  <h2>Exploring Film Duration Versus Score: A Heatmap Analysis</h2>
+  <!-- <h2>Exploring Film Duration Versus Score: A Heatmap Analysis</h2>
   <div class="main-container">
     <div class="leftdivision">
       <p>Will have a paragraph at here ...</p>
     </div>
     <div class="rightdivision">
       <div id="runtime_score"></div>
+    </div>
+  </div> -->
+
+  <!-- Idiom 4 -->
+  <!-- Sub Title -->
+  <h2><img src= css/scoreboard.png alt="score" style="height:55px;width:auto;"/>Top 10 High Score Achievers: Directors, Writers, and Actors in Cinema</h2>
+  <div class="main-container">
+    <div>
+      <div>
+        <div id="director_score"></div>
+      </div>
+      <div>
+        <div id="writer_score"></div>
+      </div>
+      <div>
+        <div id="star_score"></div>
+      </div>
+    </div>
+    <div>
+      <p>Will have a paragraph at here ...</p>
     </div>
   </div>
   
@@ -94,8 +114,22 @@
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    var spec5 = "js/runtime_score.vg.json";
-    vegaEmbed('#runtime_score', spec5, {
+    var spec5 = "js/director_score.vg.json";
+    vegaEmbed('#director_score', spec5, {
+      "actions": false // This disables the "Open in Vega Editor" button
+    }).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var spec6 = "js/writer_score.vg.json";
+    vegaEmbed('#writer_score', spec6, {
+      "actions": false // This disables the "Open in Vega Editor" button
+    }).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var spec7 = "js/star_score.vg.json";
+    vegaEmbed('#star_score', spec7, {
       "actions": false // This disables the "Open in Vega Editor" button
     }).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
