@@ -1,14 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
+  "width": 900,
   "height": 500,
   "params": [
     {
       "name": "zoom_level",
-      "value": 120,
+      "value": 140,
       "bind": {
         "input": "range",
-        "min": 120,
+        "min": 140,
         "max": 340,
         "step": 20,
         "name": "Zoom: "
@@ -118,7 +118,7 @@
               "#009E73"
             ]
           },
-          "legend": {"title": "Movie Genre Filter","titleFontSize": 12, "labelFontSize": 12, "symbolSize": 150}
+          "legend": {"title": "Movie Genre Filter","titleFontSize": 15, "labelFontSize": 15, "symbolSize": 150}
         },
         "opacity": {
           "condition": {"selection": "continent_highlight", "value": 0.9},
@@ -158,10 +158,10 @@
       },
       "mark": {
         "type": "text",
-        "dx": 570,
-        "dy": 70,
+        "dx": 650,
+        "dy": 45,
         "fontWeight": "bold",
-        "fontSize": 12,
+        "fontSize": 15,
         "fill": "black"
       },
       "encoding": {
