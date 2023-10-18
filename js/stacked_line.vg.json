@@ -5,7 +5,7 @@
   },
   "vconcat": [
     {
-      "width": 800,
+      "width": 900,
       "height": 500,
       "selection": {
         "genre_highlight": {
@@ -20,13 +20,19 @@
           "field": "year",
           "type": "temporal", 
           "scale": {"domain": {"param": "brush"}},
-          "axis": {"title": "Year"}
+          "axis": {"title": "Year",
+          "grid": false,
+          "labelFontSize":15, 
+          "titleFontSize":15}
         },
         "y": {
           "field": "genre",
           "type": "nominal",
           "aggregate": "count",
-          "axis": {"title": "Genre Popularity"}
+          "axis": {"title": "Number of Movies",
+          "labelAlign":"right",
+          "labelFontSize":15, 
+          "titleFontSize":15}
         },
         "color": {
           "field": "genre",
@@ -47,13 +53,13 @@
               "#ffbb78",
               "#98df8a",
               "#ff9896",
-              "#c5b0k8",
+              "#2B2D42",
               "#c49c94",
               "#f7b6d2",
               "#c7c7c7" 
             ]
           },
-          "legend": {"title": "Genre Filter", "labelFontSize": 12, "symbolStrokeWidth": 4}
+          "legend": {"title": "Genre Filter","titleFontSize":15, "labelFontSize": 15, "symbolStrokeWidth": 7}
         },
         "opacity": {
           "condition": {"selection": "genre_highlight", "value": 0.9},
@@ -61,13 +67,14 @@
         },
         "tooltip": [
           {"field": "year", "type": "temporal", "title": "Year", "timeUnit": "year"},
-          {"field": "genre", "type": "nominal", "aggregate": "count", "title" : "Genre Popularity"}
+          {"field": "genre", "type": "nominal", "title" : "Genre"},
+          {"field": "genre", "type": "nominal", "aggregate": "count", "title" : "Number of Movies"}
         ]
       }
     },
     {
       "title": "Use this line chart to filter the year",
-      "width": 800,
+      "width": 900,
       "height": 60,
       "mark": "line",
       "params": [
@@ -79,13 +86,15 @@
               "timeUnit": "year",
               "field": "year",
               "type": "temporal",
-              "axis":{"title":""}
+              "axis":{"title":"","labelAlign":"center",
+              "labelFontSize":15, "titleFontSize":15}
             },
           "y": {
               "aggregate": "count",
               "field": "genre",
               "type": "nominal",
-              "axis": {"tickCount": 3, "grid": false, "title": ""}
+              "axis": {"tickCount": 4, "grid": false, "title": "",
+              "labelFontSize":15, "titleFontSize":15}
           }
       }
     }
