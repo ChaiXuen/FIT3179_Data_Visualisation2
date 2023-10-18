@@ -65,12 +65,12 @@ img{
 /* Add classes for left and right divisions */
 .left-division {
 	float: left;
-	width: 50%; /* Adjust the width as needed */
+	width: 50%;
 }
 
 .right-division {
-	float: left; /* ***** Can try change to right **** */
-	width: 50%; /* Adjust the width as needed */
+	float: right;
+	width: 50%;
 }
 
 .blue {
