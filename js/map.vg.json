@@ -5,10 +5,10 @@
   "params": [
     {
       "name": "zoom_level",
-      "value": 140,
+      "value": 120,
       "bind": {
         "input": "range",
-        "min": 140,
+        "min": 120,
         "max": 340,
         "step": 20,
         "name": "Zoom: "
@@ -158,8 +158,8 @@
       },
       "mark": {
         "type": "text",
-        "dx": 550,
-        "dy": 40,
+        "dx": 570,
+        "dy": 70,
         "fontWeight": "bold",
         "fontSize": 12,
         "fill": "black"
