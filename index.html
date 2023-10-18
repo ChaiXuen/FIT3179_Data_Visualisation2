@@ -71,22 +71,38 @@
   <script type="text/javascript">
 
     var spec2 = "js/map.vg.json";
-    vegaEmbed('#movie_map', spec2).then(function(result) {
+    vegaEmbed('#movie_map', spec2, {
+      actions: {
+        export: false // This disables the "Open in Vega Editor" button
+      }
+    }).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
     var spec3 = "js/stacked_line.vg.json";
-    vegaEmbed('#stackedline', spec3).then(function(result) {
+    vegaEmbed('#stackedline', spec3, {
+      actions: {
+        export: false // This disables the "Open in Vega Editor" button
+      }
+    }).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
     var spec4 = "js/budget_gross.vg.json";
-    vegaEmbed('#budget_gross', spec4).then(function(result) {
+    vegaEmbed('#budget_gross', spec4, {
+      actions: {
+        export: false // This disables the "Open in Vega Editor" button
+      }
+    }).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
     var spec5 = "js/runtime_score.vg.json";
-    vegaEmbed('#runtime_score', spec5).then(function(result) {
+    vegaEmbed('#runtime_score', spec5, {
+      actions: {
+        export: false // This disables the "Open in Vega Editor" button
+      }
+    }).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
