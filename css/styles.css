@@ -16,6 +16,8 @@ h2 {
 	padding: 20px 20px;
 	margin-left: 40px;
 	margin-right: 40px;
+	display: flex;
+  	align-items: center;
 }
 p {
 	font-family:'Trebuchet MS';
@@ -24,6 +26,13 @@ p {
 	padding-right: 40px;
 	margin-left: 50px;
 	margin-right: 50px;
+	text-align: center;
+}
+img{
+	height: 50px;
+	width: auto;
+	align-items:baseline;
+	margin-right: 20px;
 }
 .main_title {
 	background-size: cover;
@@ -33,10 +42,10 @@ p {
 }
   
 .main_title::before {
-	content: ''; /* Add content to the pseudo-element */
-	background-image: url("movie_background.jpg"); /* Set the background image here */
+	content: '';
+	background-image: url("movie_background.jpg");
 	background-size:cover;
-	opacity: 0.35; /* Adjust the opacity as needed */
+	opacity: 0.35;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -63,4 +72,10 @@ p {
 .right-division {
 	float: left; /* ***** Can try change to right **** */
 	width: 50%; /* Adjust the width as needed */
+}
+
+.blue {
+	font-weight: 900;
+	font-style: italic;
+	color: blue;
 }
