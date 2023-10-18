@@ -75,7 +75,7 @@ img{
 }
 
 .small_multiple {
-	flex-wrap: wrap;
+	direction: row;
 }
 
 .blue {
