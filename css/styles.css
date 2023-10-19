@@ -75,7 +75,7 @@ img{
 }
 
 .small_multiple {
-	flex-direction: row;
+	display: inline-flex;
 }
 
 .blue {
