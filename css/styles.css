@@ -80,6 +80,23 @@ img{
 
 .blue {
 	font-weight: 900;
+	font-size: 25px;
 	font-style: italic;
 	color: blue;
+}
+
+.gold {
+	font-weight: 900;
+	font-size: 35px;
+	color: #D6AF36;
+}
+.silver {
+	font-weight: 900;
+	font-size: 30px;
+	color: #c0c0c0;
+}
+.bronze {
+	font-weight: 900;
+	font-size: 25px;
+	color: #cd7f32;
 }
