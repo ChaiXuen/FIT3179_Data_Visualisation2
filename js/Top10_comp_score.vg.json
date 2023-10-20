@@ -27,7 +27,7 @@
     {
       "mark": {
         "type": "text",
-        "radiusOffset": 50,
+        "radiusOffset": 60,
         "size": 15,
         "color": "black",
         "dy": 10 
