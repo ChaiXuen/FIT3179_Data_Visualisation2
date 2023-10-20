@@ -5,7 +5,7 @@
   },
   "vconcat": [
     {
-      "width": 900,
+      "width": 750,
       "height": 500,
       "selection": {
         "genre_highlight": {
@@ -74,7 +74,7 @@
     },
     {
       "title": "Use this line chart to filter the year",
-      "width": 900,
+      "width": 750,
       "height": 60,
       "mark": "line",
       "params": [
