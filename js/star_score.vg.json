@@ -1,53 +1,52 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": {"text": "Top 10 Stars by Movies Average Score", "fontSize":16, "frame": "bounds"},
-    "data": {"url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/data/movies_cleaned.csv"},
-    "mark": "bar",
-    "transform": [
-      {
-        "aggregate": [{"op": "mean", "field": "score", "as": "aggregate_score"}],
-        "groupby": ["star"]
-      },
-      {
-        "window": [{"op": "row_number", "as": "rank"}],
-        "sort": [{ "field": "aggregate_score", "order": "descending" }]
-      },
-      {
-        "calculate": "datum.rank <= 10 ? datum.star : null", "as": "ranked_star"
-      },
-      {
-        "filter": "datum.ranked_star !== null"
-      }
-    ],
-    "encoding": {
-      "x": {
-        "aggregate": "mean",
-        "field": "aggregate_score",
-        "type": "quantitative",
-        "axis":{
-          "title":"Average Score","labelAlign":"center", "labelFontSize":15, "titleFontSize":15
-        }
-      },
-      "y": {
-        "sort": {"op": "mean", "field": "aggregate_score", "order": "descending"},
-        "field": "ranked_star",
-        "type": "ordinal",
-        "axis":{
-          "title":"Star","labelAlign":"right", "labelFontSize":15, "titleFontSize":15
-        }
-      },
-      "color": {"value": "grey"},
-      "tooltip": [
-        {"field": "ranked_star", "type": "nominal", "title" : "Star: "},
-        {"field": "aggregate_score", "type": "quantitative", "title" : "Movies Average Score: ", "format": ".2f"}
-      ]
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text": "Top 10 Stars by Movies Score", "fontSize":16, "frame": "bounds"},
+  "data": {"url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/data/movies_cleaned.csv"},
+  "mark": "bar",
+  "transform": [
+    {
+      "aggregate": [{"op": "sum", "field": "score", "as": "aggregate_score"}],
+      "groupby": ["star"]
     },
-    "config": {
-      "style": {
-        "cell": {
-          "stroke": "transparent"
-        }
+    {
+      "window": [{"op": "row_number", "as": "rank"}],
+      "sort": [{ "field": "aggregate_score", "order": "descending" }]
+    },
+    {
+      "calculate": "datum.rank <= 10 ? datum.star : null", "as": "ranked_star"
+    },
+    {
+      "filter": "datum.ranked_star !== null"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "aggregate": "mean",
+      "field": "aggregate_score",
+      "type": "quantitative",
+      "axis":{
+        "title":"Score","labelAlign":"center", "labelFontSize":15, "titleFontSize":15
+      }
+    },
+    "y": {
+      "sort": {"op": "mean", "field": "aggregate_score", "order": "descending"},
+      "field": "ranked_star",
+      "type": "ordinal",
+      "axis":{
+        "title":"Star","labelAlign":"right", "labelFontSize":15, "titleFontSize":15
+      }
+    },
+    "color": {"value": "grey"},
+    "tooltip": [
+      {"field": "ranked_star", "type": "nominal", "title" : "Star: "},
+      {"field": "aggregate_score", "type": "quantitative", "title" : "Movies Score: ", "format": ".2f"}
+    ]
+  },
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
       }
     }
+  }
 }
-  
