@@ -1,14 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 900,
+  "width": 800,
   "height": 500,
   "params": [
     {
       "name": "zoom_level",
-      "value": 140,
+      "value": 120,
       "bind": {
         "input": "range",
-        "min": 140,
+        "min": 120,
         "max": 340,
         "step": 20,
         "name": "Zoom: "
@@ -158,8 +158,8 @@
       },
       "mark": {
         "type": "text",
-        "dx": 650,
-        "dy": 45,
+        "dx": 550,
+        "dy":75,
         "fontWeight": "bold",
         "fontSize": 15,
         "fill": "black"
