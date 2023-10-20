@@ -75,6 +75,21 @@
     </div>
     <p>Will have a paragraph at here ... bnfdslknkdjs hfdsjsdlfds afdsaflsaf lsadkfdlsnafjksdajkfjk  dsakjfsakj bfbafdsbafas kfjads ADKJFKDSJFSAKJ FDSJA</p>
   </div>
+
+  <!-- Idiom 5 -->
+  <!-- Sub Title -->
+  <h2><img src= css/rank.png alt="score" style="height:55px;width:auto;"/>Which Company's Movie Is More Famous?</h2>
+  <div class="main-container" style="flex-direction: column;">
+    <div class="small_multiple">
+      <div>
+        <div id="comp_score"></div>
+      </div>
+      <div>
+        <div id="comp_votes"></div>
+      </div>
+    </div>
+    <p>Will have a paragraph at here ... bnfdslknkdjs hfdsjsdlfds afdsaflsaf lsadkfdlsnafjksdajkfjk  dsakjfsakj bfbafdsbafas kfjads ADKJFKDSJFSAKJ FDSJA</p>
+  </div>
   
 
   <script type="text/javascript">
@@ -116,6 +131,20 @@
 
     var spec7 = "js/star_score.vg.json";
     vegaEmbed('#star_score', spec7, {
+      "actions": false // This disables the "Open in Vega Editor" button
+    }).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var spec8 = "js/Top10_comp_score.vg.json";
+    vegaEmbed('#comp_score', spec8, {
+      "actions": false // This disables the "Open in Vega Editor" button
+    }).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var spec9 = "js/Top10_comp_votes.vg.json";
+    vegaEmbed('#comp_votes', spec9, {
       "actions": false // This disables the "Open in Vega Editor" button
     }).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
