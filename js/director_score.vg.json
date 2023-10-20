@@ -41,5 +41,12 @@
       {"field": "ranked_director", "type": "nominal", "title" : "Director"},
       {"field": "aggregate_score", "type": "quantitative", "title" : "Movies Average Score", "format": ".2f"}
     ]
+  },
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
   }
 }

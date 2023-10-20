@@ -60,10 +60,10 @@
     ]
   },
   "config": {
-      "style": {
-        "cell": {
-          "stroke": "transparent"
-        }
+    "style": {
+      "cell": {
+        "stroke": "transparent"
       }
     }
+  }
 }

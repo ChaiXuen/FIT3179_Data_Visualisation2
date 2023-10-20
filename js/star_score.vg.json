@@ -41,6 +41,13 @@
         {"field": "ranked_star", "type": "nominal", "title" : "Star: "},
         {"field": "aggregate_score", "type": "quantitative", "title" : "Movies Average Score: ", "format": ".2f"}
       ]
+    },
+    "config": {
+      "style": {
+        "cell": {
+          "stroke": "transparent"
+        }
+      }
     }
 }
   
