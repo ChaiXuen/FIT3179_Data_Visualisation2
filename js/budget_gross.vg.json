@@ -39,6 +39,7 @@
           "labelFontSize":15, 
           "titleFontSize":15}
         },
+        "color": {"value": "grey"},
         "tooltip": [
           {"field": "name", "type": "nominal", "title": "Movie Name"},
           {"field": "year", "type": "temporal", "title": "Year"},
