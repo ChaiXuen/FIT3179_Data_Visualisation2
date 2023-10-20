@@ -5,7 +5,8 @@
   "title": {
     "text": "Top 10 Companies by IMDb User Rating",
     "fontSize": 18,
-    "frame": "bounds"
+    "frame": "bounds",
+    "dy": -15
   },
   "data": {
     "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/data/movies_cleaned.csv"
@@ -26,7 +27,7 @@
     {
       "mark": {
         "type": "text",
-        "radiusOffset": 60,
+        "radiusOffset": 50,
         "size": 15,
         "color": "black",
         "dy": 10 
@@ -57,5 +58,12 @@
       {"field": "company", "type": "nominal", "title": "Company"},
       {"field": "total_score", "type": "quantitative", "title": "Total Score", "format":","}
     ]
-  }
+  },
+  "config": {
+      "style": {
+        "cell": {
+          "stroke": "transparent"
+        }
+      }
+    }
 }
