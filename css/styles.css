@@ -1,6 +1,6 @@
 h1 {
 	font-family: 'Lobster'; /* Sans Serif typeface */
-	font-size: 85px;
+	font-size: 90px;
 	color: black;
 	text-align: center;
 	margin-top: 0px;
@@ -21,7 +21,7 @@ h2 {
 }
 p {
 	font-family:'Trebuchet MS';
-	font-size: 20px;
+	font-size: 18px;
 	margin-left: 20px;
 	margin-right: 20px;
 	text-align: center;
@@ -80,23 +80,25 @@ img{
 
 .blue {
 	font-weight: 900;
-	font-size: 25px;
-	font-style: italic;
+	font-size: 22px;
 	color: #4f81ec;
 }
 
 .gold {
 	font-weight: 900;
-	font-size: 35px;
+	font-size: 32px;
 	color: #D6AF36;
+	font-style: italic;
 }
 .silver {
 	font-weight: 900;
-	font-size: 30px;
+	font-size: 27px;
 	color: #848484;
+	font-style: italic;
 }
 .bronze {
 	font-weight: 900;
-	font-size: 25px;
+	font-size: 22px;
 	color: #cd7f32;
+	font-style: italic;
 }
