@@ -1,74 +1,88 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 450,
-    "height": 350,
-    "title": {
-      "text": "Top 10 Companies by User Votes",
-      "fontSize": 18,
-      "frame": "bounds",
-      "dy": -15
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 450,
+  "height": 350,
+  "title": {
+    "text": "Top 10 Companies by User Votes",
+    "fontSize": 18,
+    "frame": "bounds",
+    "dy": -15
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/data/movies_cleaned.csv"
+  },
+  "transform": [
+    {
+      "aggregate": [{"op": "sum", "field": "votes", "as": "total_votes"}],
+      "groupby": ["company"]
     },
-    "data": {
-      "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Data_Visualisation2/main/data/movies_cleaned.csv"
+    {
+      "window": [{"op": "rank", "as": "rank"}],
+      "sort": [{"field": "total_votes", "order": "descending"}]
     },
-    "transform": [
-      {
-        "aggregate": [{"op": "sum", "field": "votes", "as": "total_votes"}],
-        "groupby": ["company"]
+    {"filter": {"field": "rank", "lte": 10}}
+  ],
+  "layer": [
+    {"mark": {"type": "arc", "innerRadius": 30, "stroke": "#fff"}},
+    {
+      "mark": {
+        "type": "text",
+        "radiusOffset": 60,
+        "size": 15,
+        "color": "black",
+        "dy": 10
       },
-      {
-        "window": [{"op": "rank", "as": "rank"}],
-        "sort": [{"field": "total_votes", "order": "descending"}]
-      },
-      {"filter": {"field": "rank", "lte": 10}}
-    ],
-    "layer": [
-      {"mark": {"type": "arc", "innerRadius": 30, "stroke": "#fff"}},
-      {
-        "mark": {
-          "type": "text",
-          "radiusOffset": 60,
-          "size": 15,
-          "color": "black",
-          "dy": 10
-        },
-        "encoding": {
-          "text": {"field": "total_votes", "format": ",", "type": "quantitative"}
-        }
+      "encoding": {
+        "text": {"field": "total_votes", "format": ",", "type": "quantitative"}
       }
-    ],
-    "encoding": {
-      "theta": {"field": "total_votes", "type": "quantitative", "stack": true},
-      "radius": {
+    }
+  ],
+  "encoding": {
+    "theta": {"field": "total_votes", "type": "quantitative", "stack": true},
+    "radius": {
+      "field": "total_votes",
+      "type": "quantitative",
+      "scale": {"zero": true, "rangeMin": 60}
+    },
+    "color": {
+      "field": "company",
+      "type": "nominal",
+      "scale": {
+        "range": [
+          "#772B0A",
+          "#AD5086",
+          "#9E9EC1",
+          "#FFDB58",
+          "#184777",
+          "#FF6B6B",
+          "#808000",
+          "#9370DB",
+          "#443A3A",
+          "#008080"
+        ]
+    },
+      "legend": {
+        "title": "Companies",
+        "titleFontSize": 15,
+        "labelFontSize": 15,
+        "symbolSize": 150
+      }
+    },
+    "tooltip": [
+      {"field": "company", "type": "nominal", "title": "Company"},
+      {
         "field": "total_votes",
         "type": "quantitative",
-        "scale": {"zero": true, "rangeMin": 60}
-      },
-      "color": {
-        "field": "company",
-        "type": "nominal",
-        "legend": {
-          "title": "Companies",
-          "titleFontSize": 15,
-          "labelFontSize": 15,
-          "symbolSize": 150
-        }
-      },
-      "tooltip": [
-        {"field": "company", "type": "nominal", "title": "Company"},
-        {
-          "field": "total_votes",
-          "type": "quantitative",
-          "title": "Total Votes",
-          "format": ","
-        }
-      ]
-    },
-    "config": {
-      "style": {
-        "cell": {
-          "stroke": "transparent"
-        }
+        "title": "Total Votes",
+        "format": ","
+      }
+    ]
+  },
+  "config": {
+    "style": {
+      "cell": {
+        "stroke": "transparent"
       }
     }
   }
+}

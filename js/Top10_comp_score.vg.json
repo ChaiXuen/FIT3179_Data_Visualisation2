@@ -47,6 +47,20 @@
     "color": {
       "field": "company",
       "type": "nominal",
+      "scale": {
+        "range": [
+          "#772B0A",
+          "#AD5086",
+          "#9E9EC1",
+          "#FFDB58",
+          "#184777",
+          "#FF6B6B",
+          "#808000",
+          "#9370DB",
+          "#443A3A",
+          "#008080"
+        ]
+      },
       "legend": {
         "title": "Companies",
         "titleFontSize": 15,
